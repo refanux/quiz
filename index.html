@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Quiz Manager</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        
+        <div class="logo" style="
+    color:#ff4da6;
+    font-size:32px;
+    font-weight:900;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    text-shadow:0 0 10px #ff4da6, 0 0 20px #ff4da6, 0 0 30px #ff4da6;
+    margin-right:auto;
+    display:flex;
+    align-items:center;
+    gap:8px;
+">
+    ✧ Princess
+</div>
+
+        <a href="#" class="active" data-tab="player">Attempt Quiz</a>
+        <a href="#" data-tab="designer">Designer</a>
+        <a href="#" data-tab="manager">Manager</a>
+    </nav>
+
+    <!-- PLAYER -->
+    <section id="player" class="container active">
+
+        <div class="quiz-grid">
+
+            <div class="card">
+
+                <div class="quiz-header">
+                    <span id="questionCounter">Question 1 of 1</span>
+                </div>
+
+                <div class="progress-wrapper">
+                    <div id="progressBar"></div>
+                </div>
+
+                <h2 id="questionText">
+                    Loading...
+                </h2>
+
+                <div id="optionsContainer"></div>
+
+                <div class="quiz-buttons">
+
+                    <button id="prevBtn" class="btn btn-outline">
+                        ← Previous
+                    </button>
+
+                    <button id="nextBtn" class="btn btn-primary">
+                        Next →
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="card sidebar">
+
+                <h3>Navigation</h3>
+
+                <div id="navDots" class="nav-dots"></div>
+
+                <button id="finishBtn" class="btn btn-primary full">
+                    Finish Quiz
+                </button>
+
+                <div id="resultBox"></div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- DESIGNER -->
+    <section id="designer" class="container">
+
+        <div class="card">
+
+            <h2 id="designerTitle">
+                Add New Question
+            </h2>
+
+            <div class="form-group">
+                <label>Pertanyaan</label>
+                <textarea id="questionInput"></textarea>
+            </div>
+
+            <div class="options-grid">
+
+                <div class="form-group">
+                    <label>Option A</label>
+                    <input type="text" id="optionA">
+                </div>
+
+                <div class="form-group">
+                    <label>Option B</label>
+                    <input type="text" id="optionB">
+                </div>
+
+                <div class="form-group">
+                    <label>Option C</label>
+                    <input type="text" id="optionC">
+                </div>
+
+                <div class="form-group">
+                    <label>Option D</label>
+                    <input type="text" id="optionD">
+                </div>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Jawaban Benar</label>
+
+                <select id="correctAnswer">
+                    <option value="0">Option A</option>
+                    <option value="1">Option B</option>
+                    <option value="2">Option C</option>
+                    <option value="3">Option D</option>
+                </select>
+
+            </div>
+
+            <div class="designer-buttons">
+
+                <button id="saveQuestionBtn" class="btn btn-primary">
+                    Save Question
+                </button>
+
+                <button id="cancelEditBtn" class="btn btn-outline hidden">
+                    Cancel Edit
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- MANAGER -->
+    <section id="manager" class="container">
+
+        <div class="card">
+
+            <div class="manager-header">
+
+                <h2>Question Manager</h2>
+
+                <div class="manager-buttons">
+
+                    <button id="exportBtn" class="btn btn-outline">
+                        Export JSON
+                    </button>
+
+                    <label class="btn btn-outline import-label">
+                        Import JSON
+                        <input type="file" id="importFile" hidden>
+                    </label>
+
+                </div>
+
+            </div>
+
+            <div id="questionList"></div>
+
+            <button id="deleteAllBtn" class="btn btn-danger full">
+                Delete All Questions
+            </button>
+
+        </div>
+
+    </section>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
