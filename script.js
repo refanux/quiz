@@ -735,48 +735,27 @@ document
 // IMPORT JSON
 // ===============================
 
-document
-.getElementById("importFile")
-.addEventListener("change",(e)=>{
+document.getElementById("importTextBtn").addEventListener("click", () => {
 
-    const file =
-    e.target.files[0];
+    const text = document.getElementById("importText").value;
 
-    if(!file) return;
+    if (!text) {
+        alert("Isi JSON dulu!");
+        return;
+    }
 
-    const reader =
-    new FileReader();
+    try {
+        questions = JSON.parse(text);
 
-    reader.onload = function(){
+        saveToStorage();
+        renderQuestionList();
+        loadQuestion();
 
-        try{
+        alert("Import berhasil!");
 
-            questions =
-            JSON.parse(
-                reader.result
-            );
-
-            saveToStorage();
-
-            renderQuestionList();
-
-            loadQuestion();
-
-            alert(
-                "Import berhasil."
-            );
-
-        }catch{
-
-            alert(
-                "File JSON tidak valid."
-            );
-
-        }
-
-    };
-
-    reader.readAsText(file);
+    } catch (error) {
+        alert("JSON salah format!");
+    }
 
 });
 
